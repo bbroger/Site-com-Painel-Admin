@@ -28,16 +28,19 @@
                 //var_dump(password_get_info($row_usuario['password']));
                 //exit;
 
-                if((password_verify($senha, $row_usuario['password']))){
+                if((password_verify($senha, $row_usuario['password'])) && $usuario === $row_usuario['email']){
+                    $_SESSION['id'] = $row_usuario['id'];
+                    $_SESSION['name'] = utf8_encode($row_usuario['name']);
+                    $_SESSION['email'] = $row_usuario['email'];
 
                     header("Location: administrativo.php");
 
                 }else{
-                    $_SESSION['msg'] = "1 - Usuário ou senha incorretos, tente novamente.";
+                    $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Usuário ou senha incorretos, tente novamente..</p>";
                     header("Location: login.php");
                 }
             }else{
-                    $_SESSION['msg'] = "2 - Usuário ou senha incorretos, tente novamente.";
+                    $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Usuário ou senha incorretos, tente novamente..</p>";
                     header("Location: login.php");
             }
 
@@ -47,7 +50,7 @@
         }
 
     }else{
-        $_SESSION['msg'] = "Página não encontrada";
+        $_SESSION['msg'] = "<p class='alert alert-danger alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Página não encontrada.</p>";
         header("Location: login.php");
     }
 ?>

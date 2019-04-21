@@ -1,11 +1,7 @@
 <?php
-mutation {
-  login(input: {
-        email: "email@email.com",
-        password: "password"
-    }) {
-    user {
-      apiKey
-    }
-  }
-}
+$senha = teste;
+
+$password = password_hash($senha, PASSWORD_DEFAULT);
+echo $password;
+
+?>
