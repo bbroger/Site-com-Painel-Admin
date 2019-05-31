@@ -6,4 +6,6 @@
     $db = "loginphp";
 
     $conn = mysqli_connect($host, $user, $password, $db);
+
+    //utilizar user1@user.com como usuário do sistema
 ?>
