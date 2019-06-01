@@ -7,7 +7,7 @@
 
     } else {
 
-        $_SESSION['msg'] = "Necessário fazer login para acessar essa página.";
+        $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Necessário fazer login para acessar essa página.</p>";;
         header("Location: login.php");
     }
   

@@ -11,7 +11,7 @@
     <meta name="author" content="RCSSOFT">
     <link rel="icon" href="assets/imagens/favicon.ico">
 
-    <title>Área para Usuário Cadastrado</title>
+    <title>Login</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/signin.css" rel="stylesheet">
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
@@ -21,7 +21,7 @@
   <body>
     <div class="container">
       <form class="form-signin" method="POST" action="valida_login.php">
-        <h2 class="form-signin-heading text-center">Área para Usuário Cadastrado</h2>
+        <h2 class="form-signin-heading text-center">Efetue seu login</h2>
         <div class="msg">
           <?php
             if(isset($_SESSION['msg'])){
