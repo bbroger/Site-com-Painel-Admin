@@ -15,16 +15,16 @@
         //verifica se os campos usuario e senha foram preenchidos
         if(!empty($usuario) && !empty($senha)){
             //gerar senha criptografada
-            //$password = password_hash($senha, PASSWORD_DEFAULT);
-            //echo $password;
-            //exit;
+            $cripto = password_hash($senha, PASSWORD_DEFAULT);
             //Pesquisar o usuário no BD
-            $queryInsert = " INSERT INTO usuarios nome, email, senha, login, nivel_acesso_id, created";
+            $queryInsert = " INSERT INTO usuarios (nome, email, senha, login, nivel_acesso_id, created)
+            values ('$nome', '$email', '$cripto', '$usuario', '$nivel', NOW()); ";
+
             $resultado_usuario = mysqli_query($conn, $queryInsert);
 
             if($resultado_usuario){
-                $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Usuário cadastrado com sucesso.</p>";
-                    header("Location: ../cadastrar_usuario.php");
+                $_SESSION['msg'] = "<p class='alert alert-success alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Usuário cadastrado com sucesso.</p>";
+                header("Location: ../cadastrar_usuario.php");
             }else{
                 $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Não foi possível cadastrar esse usuário, tente novamente..</p>";
                 header("Location: ../cadastrar_usuario.php");

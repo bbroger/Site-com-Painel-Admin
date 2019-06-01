@@ -45,6 +45,14 @@
       </div>
       <div class="row">
         <div class="col-md-12">
+          <div class="msg">
+            <?php
+              if(isset($_SESSION['msg'])){
+                  echo $_SESSION['msg'];
+                  unset($_SESSION['msg']);
+              }
+            ?>
+          </div>
           <form class="form-horizontal" method="POST" action="processa/cad_usuario.php">
             
             <div class="form-group">
