@@ -20,7 +20,7 @@
 
   <body>
     <div class="container">
-      <form class="form-signin" method="POST" action="valida_login.php">
+      <form class="form-signin" method="POST" action="processa/valida_login.php">
         <h2 class="form-signin-heading text-center">Efetue seu login</h2>
         <div class="msg">
           <?php
