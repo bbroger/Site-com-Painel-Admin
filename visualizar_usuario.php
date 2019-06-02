@@ -9,15 +9,23 @@
     unset($_SESSION['nome']);
     $_SESSION['msg'] = "<p class='alert alert-warning alert-dismissible'><a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Preencha os campos Usuário e Senha</p>";
     header("Location: login.php");
+  } else{
+
+    $sql = " SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha, usuarios.login, usuarios.nivel_acesso_id,           nivel_acesso.id, nivel_acesso.nivel_acesso
+              FROM usuarios
+              INNER JOIN nivel_acesso
+              WHERE usuarios.nivel_acesso_id = nivel_acesso.id;";
+    
+    $resultado = mysqli_query($conn, $sql);
   }
   
 ?>
 
-  <body>
-     <?php require_once("menu_admin.php");?>
+<body>
+    <?php require_once("menu_admin.php");?>
     <div class="container theme-showcase" role="main">
       <div class="page-header">
-          <h1>Cadastrar Usuários</h1>
+          <h1>Visualizar Usuários</h1>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -29,8 +37,11 @@
               }
             ?>
           </div>
-          <form class="form-horizontal" method="POST" action="processa/cad_usuario.php">
-            
+
+          <?php if($resultado){
+
+            while($usuario =  mysqli_fetch_array($resultado)){?>
+
             <div class="form-group">
               <label for="nome" class="col-sm-2 control-label">Nome</label>
               <div class="col-sm-10">
@@ -68,15 +79,10 @@
                 </select>
               </div>
             </div>
-
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" name="btnCadastrar" class="btn btn-success" value="cadastrar">Cadastrar</button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
+         <?php }?>
+         <?php }?>       
     </div> <!-- /container -->
 
     <?php require_once("processa/footer.php");?>
