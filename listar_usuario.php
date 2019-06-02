@@ -7,12 +7,10 @@
     header("Location: login.php");
   }
   
+  $sql = " SELECT * FROM usuarios ORDER BY nome ";
+  $resultado = mysqli_query($conn, $sql);
 ?>
-
-  	<?php 
-      $sql = " SELECT * FROM usuarios ORDER BY nome ";
-      $resultado = mysqli_query($conn, $sql);
-  	?>  
+ 
     <div class="container theme-showcase" role="main">
 	  <div class="page-header">
         <h1>Lista de Usuários</h1>
@@ -50,7 +48,7 @@
                     <td class="text-center botoes">
                         <a href="administrativo.php?link=4&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-success btn-xs">Visualizar</button></a>
                         <a href="administrativo.php?link=5&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-warning btn-xs">Editar</button></a>
-                        <a href="administrativo.php?link=6&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-danger btn-xs">Excluir</button></a>
+                        <a href="administrativo.php?link=6&id=<?php echo $usuario['id'];?>"><button type="button" data-toggle="modal" data-target="#confirm" class="btn btn-danger btn-xs" name="btnExcluir" value="excluir">Excluir</button></a>
                     </td>
                   </tr>
               <?php }?>

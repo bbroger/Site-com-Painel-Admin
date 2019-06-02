@@ -45,7 +45,7 @@
       $pag[3] = "cadastrar_usuario.php";
       $pag[4] = "visualizar_usuario.php";
       $pag[5] = "editar_usuario.php";
-      $pag[6] = "processa/excluir_usuario.php";
+      $pag[6] = "excluir_usuario.php";
 
       if(isset($_GET['link'])){
 
