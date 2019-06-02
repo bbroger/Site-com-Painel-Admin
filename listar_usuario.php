@@ -1,7 +1,5 @@
 <?php 
-  session_start();
   require_once("processa/conexao.php");
-  require_once("processa/head.php");
 
   if( !isset($_SESSION['id']) || !isset($_SESSION['nome']) ){
     unset($_COOKIE['session']);
@@ -12,10 +10,8 @@
   }
   
 ?>
-  <body>
-  	<?php 
-  		require_once("menu_admin.php");
 
+  	<?php 
       $sql = " SELECT * FROM usuarios ORDER BY nome ";
       $resultado = mysqli_query($conn, $sql);
   	?>  
@@ -45,10 +41,10 @@
                     <td class="text-center"><?php echo $usuario['login']; ?></td>
                     <td class="text-center"><?php echo $usuario['email']; ?></td>
                     <td class="text-center"><?php echo $usuario['nivel_acesso_id']; ?></td>
-                    <td class="text-center">
-                      <a href="visualizar_usuario.php"><button type="button" class="btn btn-success btn-xs">Visualizar</button></a>
-                      <a href="editar_usuario.php"><button type="button" class="btn btn-warning btn-xs">Editar</button></a>
-                      <a href="processa/excluir_usuario.php"><button type="button" class="btn btn-danger btn-xs">Excluir</button></a>
+                    <td class="text-center botoes">
+                        <a href="administrativo.php?link=4"><button type="button" class="btn btn-success btn-xs">Visualizar</button></a>
+                        <a href="administrativo.php?link=5"><button type="button" class="btn btn-warning btn-xs">Editar</button></a>
+                        <a href="administrativo.php?link=6"><button type="button" class="btn btn-danger btn-xs">Excluir</button></a>
                     </td>
                   </tr>
               <?php }?>
@@ -59,6 +55,3 @@
     </div>
     </div> <!-- /container -->
 
-    <?php 
-  		require_once("processa/footer.php");
-  	?>  

@@ -15,8 +15,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="cadastrar_usuario.php">Cadastrar</a></li>
-                <li><a href="listar_usuario.php">Listar</a></li>
+                <li><a href="administrativo.php?link=3">Cadastrar</a></li>
+                <li><a href="administrativo.php?link=2">Listar</a></li>
               </ul>
             </li>
             <li><a href="processa/sair.php">Sair</a></li>

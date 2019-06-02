@@ -1,0 +1,1 @@
+<h4><?php echo utf8_decode($_SESSION['nome'])?>, bem vindo ao painel administrativo.</h4>

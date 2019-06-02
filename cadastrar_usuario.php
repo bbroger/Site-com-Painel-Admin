@@ -1,7 +1,5 @@
 <?php 
-  session_start();
   require_once("processa/conexao.php");
-  require_once("processa/head.php");
 
   if( !isset($_SESSION['id']) || !isset($_SESSION['nome']) ){
     unset($_COOKIE['session']);
@@ -13,8 +11,6 @@
   
 ?>
 
-  <body>
-     <?php require_once("menu_admin.php");?>
     <div class="container theme-showcase" role="main">
       <div class="page-header">
           <h1>Cadastrar Usuários</h1>
@@ -79,4 +75,3 @@
       </div>
     </div> <!-- /container -->
 
-    <?php require_once("processa/footer.php");?>
