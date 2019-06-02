@@ -1,6 +1,4 @@
 <?php 
-  require_once("processa/conexao.php");
-
   if( !isset($_SESSION['id']) || !isset($_SESSION['nome']) ){
     unset($_COOKIE['session']);
     unset($_SESSION['id']);

@@ -1,6 +1,4 @@
 <?php 
-  require_once("processa/conexao.php");
-
   if( !isset($_SESSION['id']) || !isset($_SESSION['nome']) ){
     unset($_COOKIE['session']);
     unset($_SESSION['id']);
@@ -13,7 +11,7 @@
 
     <div class="container theme-showcase" role="main">
       <div class="page-header">
-          <h1>Cadastrar Usuários</h1>
+          <h1>Cadastrar Usuário</h1>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -60,7 +58,7 @@
               <div class="col-sm-10">
                 <select class="form-control" name="nivel_acesso">
                   <option value="1">Administrativo</option>
-                  <option value="0">Usuário</option>
+                  <option value="2">Usuário</option>
                 </select>
               </div>
             </div>

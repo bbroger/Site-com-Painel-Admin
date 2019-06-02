@@ -1,6 +1,4 @@
 <?php 
-  require_once("processa/conexao.php");
-
   if( !isset($_SESSION['id']) || !isset($_SESSION['nome']) ){
     unset($_COOKIE['session']);
     unset($_SESSION['id']);
@@ -21,6 +19,14 @@
       </div>
       <div class="row">
         <div class="col-md-12 table-responsive">
+          <div class="msg">
+            <?php
+              if(isset($_SESSION['msg'])){
+                  echo $_SESSION['msg'];
+                  unset($_SESSION['msg']);
+              }
+            ?>
+          </div>
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
@@ -42,9 +48,9 @@
                     <td class="text-center"><?php echo $usuario['email']; ?></td>
                     <td class="text-center"><?php echo $usuario['nivel_acesso_id']; ?></td>
                     <td class="text-center botoes">
-                        <a href="administrativo.php?link=4"><button type="button" class="btn btn-success btn-xs">Visualizar</button></a>
-                        <a href="administrativo.php?link=5"><button type="button" class="btn btn-warning btn-xs">Editar</button></a>
-                        <a href="administrativo.php?link=6"><button type="button" class="btn btn-danger btn-xs">Excluir</button></a>
+                        <a href="administrativo.php?link=4&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-success btn-xs">Visualizar</button></a>
+                        <a href="administrativo.php?link=5&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-warning btn-xs">Editar</button></a>
+                        <a href="administrativo.php?link=6&id=<?php echo $usuario['id']; ?>"><button type="button" class="btn btn-danger btn-xs">Excluir</button></a>
                     </td>
                   </tr>
               <?php }?>
